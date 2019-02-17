@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: bosh-exporter
+    prometheus: kube-prometheus
+  name: bosh-exporter
+  namespace: monitoring
+spec:
+  endpoints:
+  - path: /metrics
+    interval: 15s
+    port: http
+  jobLabel: component
+  namespaceSelector:
+    matchNames:
+    - monitoring
+  selector:
+    matchLabels:
+      app: bosh-exporter
