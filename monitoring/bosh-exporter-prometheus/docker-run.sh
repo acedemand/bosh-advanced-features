@@ -1,3 +1,4 @@
+bosh interpolate ${PWD}/creds.yml --path /director_ssl/ca
 echo $BOSH_CLIENT_SECRET
 bbl director-address
 mkdir -p 
